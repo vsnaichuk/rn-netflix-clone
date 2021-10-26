@@ -19,6 +19,7 @@ export default function BottomTabNavigator() {
       initialRouteName="Home"
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme].tint,
+        headerShown: false
       }}
     >
       <BottomTab.Screen
@@ -62,11 +63,10 @@ const HomeStack = createNativeStackNavigator<HomeParamList>();
 
 function HomeNavigator() {
   return (
-    <HomeStack.Navigator>
+    <HomeStack.Navigator screenOptions={{ headerShown: false }}>
       <HomeStack.Screen
         name="HomeScreen"
         component={HomeScreen}
-        options={{ headerShown: false }}
       />
     </HomeStack.Navigator>
   );
@@ -76,11 +76,10 @@ const TabTwoStack = createNativeStackNavigator<TabTwoParamList>();
 
 function TabTwoNavigator() {
   return (
-    <TabTwoStack.Navigator>
+    <TabTwoStack.Navigator screenOptions={{ headerShown: false }}>
       <TabTwoStack.Screen
         name="TabTwoScreen"
         component={TabTwoScreen}
-        options={{ headerTitle: 'Tab Two Title' }}
       />
     </TabTwoStack.Navigator>
   );
