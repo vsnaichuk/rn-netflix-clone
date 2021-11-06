@@ -1,12 +1,11 @@
 import * as React from 'react';
 import s from './styles';
 import { View } from '../../components/Themed';
-import { RootTabScreenProps } from '../../types';
 import categories from '../../assets/data/categories';
 import HomeCategory from '../../components/HomeCategory/HomeCategory';
 import { FlatList } from 'react-native';
 
-export default function HomeScreen({}: RootTabScreenProps<'Home'>) {
+const HomeScreen = ({}) => {
   return (
     <View style={s.container}>
       {/*List of categories*/}
@@ -16,4 +15,6 @@ export default function HomeScreen({}: RootTabScreenProps<'Home'>) {
       />
     </View>
   );
-}
+};
+
+export default HomeScreen;

@@ -7,6 +7,7 @@ import { AntDesign, Ionicons, MaterialIcons } from '@expo/vector-icons';
 import TabTwoScreen from '../screens/TabTwoScreen';
 import * as React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import MovieDetailsScreen from '../screens/MovieDetailsScreen/MovieDetailsScreen';
 
 
 const BottomTab = createBottomTabNavigator<RootTabParamList>();
@@ -63,10 +64,16 @@ const HomeStack = createNativeStackNavigator<HomeParamList>();
 
 function HomeNavigator() {
   return (
-    <HomeStack.Navigator screenOptions={{ headerShown: false }}>
+    <HomeStack.Navigator>
+      <HomeStack.Screen
+        name="MovieDetailsScreen"
+        component={MovieDetailsScreen}
+        options={{ title: ''}}
+      />
       <HomeStack.Screen
         name="HomeScreen"
         component={HomeScreen}
+        options={{ headerShown: false }}
       />
     </HomeStack.Navigator>
   );

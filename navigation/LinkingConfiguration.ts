@@ -17,6 +17,7 @@ const linking: LinkingOptions<RootStackParamList> = {
         screens: {
           Home: {
             screens: {
+              MovieDetailsScreen: 'movie-details',
               HomeScreen: 'home',
             },
           },
