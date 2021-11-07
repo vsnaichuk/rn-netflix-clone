@@ -1,26 +1,18 @@
 import * as React from 'react';
 import s from './styles';
-import { FlatList, Image } from 'react-native';
-import { View, Text } from '../Themed';
-import {
-  MaterialCommunityIcons,
-  MaterialIcons,
-} from '@expo/vector-icons';
+import { Image, Pressable } from 'react-native';
+import { Text, View } from '../Themed';
+import { MaterialIcons } from '@expo/vector-icons';
+import { Episode } from '../../types';
 
-interface EpisodeProps {
-  episode: {
-    id: string,
-    title: string,
-    poster: string,
-    duration: string,
-    plot: string,
-    video: string,
-  };
-}
+type Props = {
+  episode: Episode;
+  onPress: (episode: Episode) => void;
+};
 
-const EpisodeItem = ({ episode }: EpisodeProps) => {
+const EpisodeItem = ({ episode, onPress }: Props) => {
   return (
-    <View style={s.container}>
+    <Pressable style={s.container} onPress={() => onPress(episode)}>
       <View style={s.row}>
         <Image style={s.image} source={{ uri: episode.poster }} />
         <View style={s.titleBox}>
@@ -31,7 +23,7 @@ const EpisodeItem = ({ episode }: EpisodeProps) => {
       </View>
 
       <Text style={s.plot}>{episode.plot}</Text>
-    </View>
+    </Pressable>
   );
 };
 

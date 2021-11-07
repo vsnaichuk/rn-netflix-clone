@@ -10,18 +10,16 @@ import {
 } from '@expo/vector-icons';
 import { Pressable } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
+import { Season } from '../../../types';
 
-type MovieHeaderProps = {
+type Props = {
   season: {
-    name: string,
-  },
-  onSeasonChange: (itemValue: any, itemIndex: number) => void,
+    name: string;
+  };
+  onSeasonSelect: (season: Season) => void;
 };
 
-const MovieHeader = ({
-  season,
-  onSeasonChange,
-}: MovieHeaderProps) => {
+const MovieHeader = ({ season, onSeasonSelect }: Props) => {
   const seasonNames = movie.seasons.items.map(({ name }) => name);
 
   return (
@@ -91,7 +89,9 @@ const MovieHeader = ({
 
       <Picker
         selectedValue={season.name}
-        onValueChange={onSeasonChange}
+        onValueChange={(itemValue, itemIndex) => {
+          onSeasonSelect(movie.seasons.items[itemIndex]);
+        }}
         style={{ color: 'white', width: 130 }}
         dropdownIconColor={'white'}
       >

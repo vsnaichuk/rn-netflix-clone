@@ -1,19 +1,19 @@
 import * as React from 'react';
 import s from './styles';
-import { Text, FlatList, Image } from 'react-native';
+import { FlatList, Image, Text } from 'react-native';
 
-interface CategoryProps {
+type Props = {
   category: {
-    id: string,
-    title: string,
+    id: string;
+    title: string;
     movies: {
-      id: string,
-      poster: string,
-    }[],
+      id: string;
+      poster: string;
+    }[];
   };
-}
+};
 
-const HomeCategory = ({ category }: CategoryProps) => {
+const HomeCategory = ({ category }: Props) => {
   return (
     <>
       <Text style={s.title}>{category.title}</Text>
